@@ -69,13 +69,14 @@ async function getBus(busID)
     return {data, error};
 }
 
-async function addBusToDatabase(busID, busName, lattitude, longitude)
+async function addBusToDatabase(busID, busName, lattitude, longitude, busLicense)
 {
     let buses = {
         busID: busID,
         busName: busName,
         lattitude: lattitude,
         longitude: longitude,
+        busLicense: busLicense,
     };
     const { data, error } = await supabase.from('buses').insert([buses]);
     return {data, error};

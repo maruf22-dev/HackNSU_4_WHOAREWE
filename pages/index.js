@@ -12,13 +12,20 @@ export default function Home({ profile }) {
 
   const [selectedComponent, setSelectedComponent] = useState(null);
 
-  
+  const [selectedBus, setSelectedBus] = useState();
+
+
 
 
 
   return (
     <Page profile={profile} selectedComponent={selectedComponent} setSelectedComponent={setSelectedComponent}>
-      <SelectedComponent profile={profile} selectedComponent={selectedComponent}/>
+      <SelectedComponent profile={profile}
+        selectedComponent={selectedComponent}
+        setSelectedComponent={setSelectedComponent}
+        selectedBus={selectedBus}
+        setSelectedBus={setSelectedBus} 
+        />
     </Page>
   )
 }
