@@ -1,6 +1,8 @@
 let MAIN_COMPONENTS = {
     QRCODE_SCANNER: "QRCODE_SCANNER",
     FEEDBACK: "FEEDBACk",
+    COMPLAIN: "COMPLAIN",
+    BUS: "BUS",
 }
 
 export {

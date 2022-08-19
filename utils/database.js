@@ -31,7 +31,7 @@ async function getComplaintsOfBus(busID)
     return {data, error};
 }
 
-async function addComplaintToDatabase(complainID, busID, title, details, timestamp)
+async function addComplaintToDatabase(complainID, busID, title, details, timestamp, userID)
 {
     let complaint = {
         complainID: complainID,
@@ -39,6 +39,7 @@ async function addComplaintToDatabase(complainID, busID, title, details, timesta
         title: title,
         details: details, // can be STUDENT
         timestamp: timestamp,
+        userID: userID,
     };
     const { data, error } = await supabase.from('complaints').insert([complaint]);
     return { data, error };

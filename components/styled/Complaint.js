@@ -22,9 +22,10 @@ let Input = styled.textarea`
     color: ${data.styles.color.text.low};
     font-size: x-large;
     width: 90%;
-    height: 40vh;
+    height: 15vh;
     padding: 10px;
     margin: 2.5%;
+    margin-bottom: 10px;
 
 `
 

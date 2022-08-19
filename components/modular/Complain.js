@@ -4,22 +4,25 @@ import { getSession, withPageAuthRequired } from '@auth0/nextjs-auth0';
 
 import { FaSave, FaTools } from 'react-icons/fa';
 import { TiArrowRight } from 'react-icons/ti';
-import { Prompt, Page, Input} from '../styled/feedback';
+import { Prompt, Page, Input} from '../styled/Complaint';
 import { Text } from '../styled/Text';
 import { getRandomID } from '../../utils/random';
-import { addFeedbackToDatabase } from '../../utils/database';
+import { addComplaintToDatabase, addFeedbackToDatabase } from '../../utils/database';
 
-export default function Feedback({ profile, setSelectedComponent }) {
+export default function Complain({ profile, selectedBus, setSelectedComponent }) {
 
-
+    console.log(selectedBus);
+    
+    const [title, setTitle] = useState("");
     const [details, setDetails] = useState("");
 
-    async function saveFeedBack()
+    async function saveComplaint()
     {
-        let id = getRandomID("FEEDBACK");
-        await addFeedbackToDatabase(id, profile.userID, details, Date.now());
+        console.log(selectedBus);
+        let id = getRandomID("Complaint");
+        await addComplaintToDatabase(id, selectedBus, title, details, Date.now(), profile.userID);
+        setTitle("");
         setDetails("");
-        setSelectedComponent(null);
     }
 
 
@@ -29,14 +32,15 @@ export default function Feedback({ profile, setSelectedComponent }) {
             <Prompt>
                 <Text size={2}>
                     <FaTools style={{ marginRight: "10px" }} />
-                    {"Give us your valuable feedback"}
+                    {"Complain against the scanned bus"}
                 </Text>
             </Prompt>
+            <Input value={title} type="text" placeholder="title" spellCheck="false" onChange={(event) => { setTitle(event.target.value) }} />
             <Input value={details} type="text" placeholder="feedback" spellCheck="false" onChange={(event) => { setDetails(event.target.value) }} />
 
             <Text size={3}
                 style={{ marginLeft: "85%" }} > 
-                <TiArrowRight onClick={async () => { await saveFeedBack() }} />
+                <TiArrowRight onClick={async () => { await saveComplaint() }} />
             </Text>
 
         </Page>

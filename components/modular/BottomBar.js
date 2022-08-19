@@ -30,16 +30,26 @@ export default function BottomBar({ profile, selectedComponent, setSelectedCompo
     }
 
 
+    const toggleFeedback = () => {
+        if (selectedComponent === MAIN_COMPONENTS.FEEDBACK) setSelectedComponent(null);
+        else setSelectedComponent(MAIN_COMPONENTS.FEEDBACK);
+    }
+
+    const toggleComplaint = () => {
+        if (selectedComponent === MAIN_COMPONENTS.COMPLAIN) setSelectedComponent(null);
+        else setSelectedComponent(MAIN_COMPONENTS.COMPLAIN);
+    }
+
 
     return (
         <Bar style={bottomBarStyle}>
-            <Text size={3} style={iconstyle}>
+            <Text size={3} style={iconstyle} onClick={toggleComplaint}>
                 <FaSadTear />
             </Text>
             <Text size={3} style={iconstyle} onClick={toggleQrCodeScanner}>
                 <FaCamera />
             </Text>
-            <Text size={3} style={iconstyle}>
+            <Text size={3} style={iconstyle} onClick={toggleFeedback}>
                 <FaComment />
             </Text>
         </Bar>
