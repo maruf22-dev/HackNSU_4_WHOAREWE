@@ -11,7 +11,7 @@ import { Text } from '../components/styled/Text';
 
 export default function Home({ profile }) {
 
-  const [selectedComponent, setSelectedComponent] = useState(null);
+  const [selectedComponent, setSelectedComponent] = useState(MAIN_COMPONENTS.FEEDBACK);
 
   const [selectedBus, setSelectedBus] = useState();
 

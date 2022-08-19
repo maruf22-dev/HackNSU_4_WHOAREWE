@@ -4,10 +4,11 @@ import { data } from '../../data/data';
 let Page = styled.div`
     background-color: ${data.styles.color.high};
     width: 100%;
-    height: 100vh;
+    min-width: 100vw;
+    height: 80vh;
 `
 
-let DeveloperPrompt = styled.div`
+let Prompt = styled.div`
 background-color: ${data.styles.color.low};
 width: 100%;
 height: 10vh;
@@ -15,7 +16,7 @@ display: flex;
 justify-content: center;
 `
 
-let Input = styled.input`
+let Input = styled.textarea`
     all: unset;
     background-color: ${data.styles.color.medium};
     outline: none;
@@ -24,14 +25,12 @@ let Input = styled.input`
     width: 90%;
     margin: 30px;
     margin-left: 5%;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    height: 60%;
 
 `
 
 export {
     Page,
-    DeveloperPrompt,
+    Prompt,
     Input
 }
