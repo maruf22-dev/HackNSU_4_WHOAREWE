@@ -9,12 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.2.5",
+    "@auth0/nextjs-auth0": "^1.9.0",
+    "@supabase/supabase-js": "^1.35.3",
+    "jsqr": "^1.4.0",
+    "leaflet": "^1.8.0",
+    "leaflet-defaulticon-compatibility": "^0.1.1",
+    "next": "latest",
+    "nextjs-progressbar": "^0.0.14",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
+    "react-leaflet": "^4.0.0",
+    "react-qrcode-scanner": "^1.0.2",
+    "react-select": "^5.4.0",
+    "styled-components": "^5.3.5",
+    "supabase": "^0.5.0",
+    "uuid": "^8.3.2",
+    "zustand": "^4.0.0-rc.1"
   },
   "devDependencies": {
-    "eslint": "8.22.0",
-    "eslint-config-next": "12.2.5"
+    "eslint": "8.17.0",
+    "eslint-config-next": "12.1.6"
   }
 }
