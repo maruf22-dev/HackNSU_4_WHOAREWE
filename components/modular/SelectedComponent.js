@@ -7,8 +7,9 @@ export default function SelectedComponent({
     setSelectedComponent,
     selectedBus,
     setSelectedBus
-}) 
-{
-    if (selectedComponent === MAIN_COMPONENTS.QRCODE_SCANNER) return <QrCodeScanner setSelectedComponent={setSelectedComponent} />;
+}) {
+    if (selectedComponent === MAIN_COMPONENTS.QRCODE_SCANNER) return (
+    <QrCodeScanner
+        selectedBus={selectedBus} setSelectedBus={setSelectedBus} setSelectedComponent={setSelectedComponent} />)
     return null;
 }
