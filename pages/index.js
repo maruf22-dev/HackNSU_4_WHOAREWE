@@ -6,6 +6,7 @@ import { addAuth0UserToDatabase, getUserWithAuth0ID } from '../utils/database';
 import { Page } from '../components/modular/Page';
 import SelectedComponent from '../components/modular/SelectedComponent';
 import { MAIN_COMPONENTS } from '../data/enums';
+import { Text } from '../components/styled/Text';
 
 
 export default function Home({ profile }) {
@@ -24,8 +25,9 @@ export default function Home({ profile }) {
         selectedComponent={selectedComponent}
         setSelectedComponent={setSelectedComponent}
         selectedBus={selectedBus}
-        setSelectedBus={setSelectedBus} 
-        />
+        setSelectedBus={setSelectedBus}
+      />
+      <Text>{selectedBus} </Text>
     </Page>
   )
 }
