@@ -4,7 +4,7 @@ import { getSession, withPageAuthRequired } from '@auth0/nextjs-auth0';
 
 import { addAuth0UserToDatabase, addBusToDatabase, getFeedback, getUserWithAuth0ID } from '../utils/database';
 import { Page } from '../components/modular/Page';
-import { DeveloperPrompt, Input, Page as AdminPage } from '../components/styled/adminPage';
+import { DeveloperPrompt, FeedbackContainer, Input, Page as AdminPage, Scrolled } from '../components/styled/adminPage';
 import SelectedComponent from '../components/modular/SelectedComponent';
 import { MAIN_COMPONENTS } from '../data/enums';
 import { FaSave, FaTools } from 'react-icons/fa';
@@ -17,14 +17,13 @@ export default function FeedBack({ profile }) {
 
     const [feedbacks, setFeedbacks] = useState([]);
 
-    async function fetchFeedback()
-    {
-        let {data} = await getFeedback();
+    async function fetchFeedback() {
+        let { data } = await getFeedback();
         setFeedbacks(data);
     }
 
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchFeedback();
     }, []);
 
@@ -36,21 +35,24 @@ export default function FeedBack({ profile }) {
                     {"All feedbacks of the website is"}
                 </Text>
             </DeveloperPrompt>
-            
-            {
-                feedbacks.map((current, index)=>{
-                    return (
-                        <DeveloperPrompt>
-                            <Text size={2}>
-                            Details : {current.details}
-                            </Text>
-                            <Text>
-                            Details : {current.details}
-                            </Text>
-                        </DeveloperPrompt>
-                    )
-                })
-            }
+
+            <Scrolled>
+                {
+                    feedbacks.map((current, index) => {
+                        return (
+                            <FeedbackContainer>
+                                <Text size={2}>
+                                    Feedback details : {current.details}
+                                </Text>
+                                <Text>
+                                    Feedback by : {current.userID}
+                                </Text>
+                            </FeedbackContainer>
+                        )
+                    })
+                }
+
+            </Scrolled>
         </AdminPage>
     )
 }

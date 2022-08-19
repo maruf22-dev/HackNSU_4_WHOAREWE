@@ -27,11 +27,26 @@ let Input = styled.input`
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
-
 `
 
+let Scrolled =  styled.div`
+max-width: 100vw;
+width: 100vw;
+height: 88vh;
+overflow-y: scroll;
+`
+let FeedbackContainer = styled.div`
+    max-width: 80vw;
+    width: 80vw;
+    backgroundColor: #dbdbdb;
+    margin: 10px;
+    border: 1px solid black;
+    padding: 10px;
+`
 export {
     Page,
     DeveloperPrompt,
-    Input
+    Input,
+    Scrolled,
+    FeedbackContainer
 }
