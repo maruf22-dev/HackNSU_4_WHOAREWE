@@ -45,7 +45,7 @@ async function addComplaintToDatabase(complainID, busID, title, details, timesta
 
 }
 
-async function getFeedback(feedbackID)
+async function getFeedback()
 {
     const {data, error} = await supabase.from('feedbacks').select('*');
     return {data, error};
@@ -63,6 +63,24 @@ async function addFeedbackToDatabase(feedbackID, userID, details, timestamp)
     return { data, error };
 }
 
+async function getBus(busID)
+{
+    const { data, error } = await supabase.from('buses').select('*').eq('busID', busID);
+    return {data, error};
+}
+
+async function addBusToDatabase(busID, busName, lattitude, longitude)
+{
+    let buses = {
+        busID: busID,
+        busName: busName,
+        lattitude: lattitude,
+        longitude: longitude,
+    };
+    const { data, error } = await supabase.from('buses').insert([buses]);
+    return {data, error};
+}
+
 
 export {
     addAuth0UserToDatabase,
@@ -73,4 +91,7 @@ export {
 
     getFeedback,
     addFeedbackToDatabase,
+
+    getBus,
+    addBusToDatabase,
 }
