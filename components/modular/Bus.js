@@ -13,7 +13,7 @@ export default function Bus({ selectedBus })
     }
     useEffect(() => {
         fetchBus();
-    }, [selectedBus]);
+    }, []);
 
     return (
         <Text>

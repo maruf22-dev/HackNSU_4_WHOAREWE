@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { QrScanner } from 'react-qrcode-scanner';
 import { MAIN_COMPONENTS } from '../../data/enums';
+import SelectedComponent from './SelectedComponent';
 
-export default function QrCodeScanner({selectedBus, setSelectedBus, setSelectedComponent}) {
+export default function QrCodeScanner({selectedBus, setSelectedBus, SelectedComponent, setSelectedComponent}) {
 
     const handleScan = (value) => {
         console.log(value);
-        if((value) && (value.split("_")[0] === "BUS")) setSelectedComponent(MAIN_COMPONENTS.BUS);
+        if((value) && (value.split("_")[0] === "BUS") && (SelectedComponent !== MAIN_COMPONENTS.BUS)) setSelectedComponent(MAIN_COMPONENTS.BUS);
         setSelectedBus(value);
     }
 

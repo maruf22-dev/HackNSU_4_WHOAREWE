@@ -11,7 +11,7 @@ import { addComplaintToDatabase, addFeedbackToDatabase } from '../../utils/datab
 
 export default function Complain({ profile, selectedBus, setSelectedComponent }) {
 
-    console.log(selectedBus);
+    console.log("ashe");
     
     const [title, setTitle] = useState("");
     const [details, setDetails] = useState("");
@@ -23,6 +23,7 @@ export default function Complain({ profile, selectedBus, setSelectedComponent })
         await addComplaintToDatabase(id, selectedBus, title, details, Date.now(), profile.userID);
         setTitle("");
         setDetails("");
+        setSelectedComponent(null);
     }
 
 

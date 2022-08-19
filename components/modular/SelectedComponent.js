@@ -13,7 +13,7 @@ export default function SelectedComponent({
 }) {
     if (selectedComponent === MAIN_COMPONENTS.QRCODE_SCANNER) return (
         <QrCodeScanner
-            selectedBus={selectedBus} setSelectedBus={setSelectedBus} setSelectedComponent={setSelectedComponent} />)
+            selectedBus={selectedBus} setSelectedBus={setSelectedBus} selectedComponent={selectedComponent} setSelectedComponent={setSelectedComponent} />)
     if (selectedComponent === MAIN_COMPONENTS.FEEDBACK) return (
         <Feedback profile={profile}
             setSelectedComponent={setSelectedComponent} />)
