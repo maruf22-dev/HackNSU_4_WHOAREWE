@@ -43,7 +43,7 @@ export default function Bus({ selectedBus }) {
                     bus.map((current, index) => {
                         return (
 
-                            <FeedbackContainer>
+                            <FeedbackContainer key={index}>
                                 <Text>Scanned Bus name : {current.busName}</Text>
                                 <Text>License No : {current.busLicense}</Text>
                                 <Text> Route for the selected bus : {getRoutes(current.busName)}</Text>

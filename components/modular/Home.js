@@ -26,7 +26,7 @@ export default function Feedback({ profile, setSelectedComponent }) {
 
     return (
         <Page style={{display: "flex", justifyContent: "center", flexDirection: "column"}}>
-            <Text style={{margin: "auto"}} size={3}>This site prototyope was developed by "WHOAREWE"</Text>
+            <Text style={{margin: "auto"}} size={3}>{`This site prototyope was developed by "WHOAREWE"`}</Text>
         </Page>
     )
 }
