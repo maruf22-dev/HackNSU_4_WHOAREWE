@@ -3,6 +3,7 @@ import QrCodeScanner from '../modular/QRCodeScanner';
 import Bus from "./Bus";
 import Complain from "./Complain";
 import Feedback from "./FeedBack";
+import Home from './Home'
 
 export default function SelectedComponent({
     profile,
@@ -24,6 +25,10 @@ export default function SelectedComponent({
 
     if (selectedComponent === MAIN_COMPONENTS.BUS) return (
         <Bus selectedBus={selectedBus} />)
+    
+    if(selectedComponent === null) return (
+        <Home> </Home>
+    )
 
     return null;
 }
