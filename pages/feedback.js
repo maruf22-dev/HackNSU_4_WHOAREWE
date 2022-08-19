@@ -40,7 +40,7 @@ export default function FeedBack({ profile }) {
                 {
                     feedbacks.map((current, index) => {
                         return (
-                            <FeedbackContainer>
+                            <FeedbackContainer key={index}>
                                 <Text size={2}>
                                     Feedback details : {current.details}
                                 </Text>
