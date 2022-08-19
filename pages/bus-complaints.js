@@ -16,7 +16,7 @@ import { getRandomID } from '../utils/random';
 export default function BusComplaints({ }) {
 
     const [complaints, setComplaints] = useState([]);
-    const [busID, setBusID] = useState([]);
+    const [busID, setBusID] = useState("");
 
 
     async function fetchComplaints() {
@@ -27,18 +27,19 @@ export default function BusComplaints({ }) {
 
     useEffect(() => {
         fetchComplaints();
-    }, []);
+    }, [busID]);
 
     return (
         <AdminPage>
             <DeveloperPrompt>
                 <Text size={2}>
                     <FaTools style={{ marginRight: "10px" }} />
-                    {"All feedbacks of the website is"}
+                    {"All complaints against the bus is given below"}
                 </Text>
             </DeveloperPrompt>
+            <Input value={busID} placeholder='busID' onChange={(e)=>{ setBusID(e.target.value)}}/>
 
-            <Scrolled>
+            <Scrolled style={{height: "70vh"}}>
                 {
                     complaints.map((current, index) => {
                         return (
