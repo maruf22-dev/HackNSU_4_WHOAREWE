@@ -1,0 +1,7 @@
+let MAIN_COMPONENTS = {
+    QRCODE_SCANNER: "QRCODE_SCANNER",
+}
+
+export {
+    MAIN_COMPONENTS
+}

@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { getSession, withPageAuthRequired } from '@auth0/nextjs-auth0';
 
 
 import { addAuth0UserToDatabase, getUserWithAuth0ID } from '../utils/database';
 import { Page } from '../components/modular/Page';
-import QrCodeScanner from '../components/modular/QRCodeScanner';
+import SelectedComponent from '../components/modular/SelectedComponent';
+import { MAIN_COMPONENTS } from '../data/enums';
+
 
 export default function Home({ profile }) {
+
+  const [selectedComponent, setSelectedComponent] = useState(null);
+
+  
+
+
+
   return (
-    <Page profile={profile}>
-      <QrCodeScanner />
+    <Page profile={profile} selectedComponent={selectedComponent} setSelectedComponent={setSelectedComponent}>
+      <SelectedComponent profile={profile} selectedComponent={selectedComponent}/>
     </Page>
   )
 }

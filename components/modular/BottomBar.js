@@ -3,6 +3,7 @@ import { Bar } from "../styled/bar";
 import { FaSadTear, FaCamera, FaComment } from 'react-icons/fa'
 import { useRouter } from "next/router";
 import { data } from "../../data/data";
+import { MAIN_COMPONENTS } from "../../data/enums";
 
 const bottomBarStyle = {
     position: "absolute", bottom: "0", justifyContent: "space-around", alignItems: "center", backgroundColor: data.styles.color.high
@@ -18,16 +19,24 @@ const iconstyle = {
     alignItems: "center"
 };
 
-export default function BottomBar({ profile }) {
+export default function BottomBar({ profile, selectedComponent, setSelectedComponent }) {
 
     const router = useRouter();
+
+
+    const toggleQrCodeScanner = () => {
+        if (selectedComponent === MAIN_COMPONENTS.QRCODE_SCANNER) setSelectedComponent(null);
+        else setSelectedComponent(MAIN_COMPONENTS.QRCODE_SCANNER);
+    }
+
+
 
     return (
         <Bar style={bottomBarStyle}>
             <Text size={3} style={iconstyle}>
                 <FaSadTear />
             </Text>
-            <Text size={3} style={iconstyle}>
+            <Text size={3} style={iconstyle} onClick={toggleQrCodeScanner}>
                 <FaCamera />
             </Text>
             <Text size={3} style={iconstyle}>
