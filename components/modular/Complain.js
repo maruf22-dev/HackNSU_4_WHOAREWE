@@ -18,8 +18,8 @@ export default function Complain({ profile, selectedBus, setSelectedComponent })
 
     async function saveComplaint()
     {
-        console.log(selectedBus);
         let id = getRandomID("Complaint");
+        console.log(profile);
         await addComplaintToDatabase(id, selectedBus, title, details, Date.now(), profile.userID);
         setTitle("");
         setDetails("");
