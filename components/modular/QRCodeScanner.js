@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { QrScanner } from 'react-qrcode-scanner';
 
-export default function QrCodeScanner() {
-    const [data, setData] = useState('empty');
-
-    const onResult = (result, error) => {
-        if (result)
-            setData(result?.text);
-    }
-
+export default function QrCodeScanner({setSelectedComponent}) {
+    const [data, setData] = useState(null);
 
     const handleScan = (value) => {
-        console.log({value})
+        setData(value)
     }
 
     const handleError = (error) => {
         console.log({error})
     }
+
+    useEffect(()=>{
+        if(data)
+        {
+            if(data.split("_")[0] === "BUS") setSelectedComponent(null);
+        }
+
+    }, [data]);
 
 
     return (
